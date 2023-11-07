@@ -1,0 +1,32 @@
+<!--HTML for Post Display-->
+
+<div class="row align-items-center">
+
+  <!--Title-->
+  <div class="col-sm-8">
+    <h1>Posts</h1>
+  </div>
+
+  <!--Create post button-->
+  <div class="col-sm-4 d-flex justify-content-end">
+    <a routerLink="/create" class="btn btn-primary">Create Post</a>
+  </div>
+
+</div>
+<hr>
+<br>
+<div class="row">
+  <div *ngFor="let post of posts" class="col-sm-4">
+    <div class="card border-info mb-3" style="max-width: 20rem;">
+      <div class="card-header">{{post.departments}}</div>
+      <div class="card-body">
+        <h4 class="card-title">{{post.title}}</h4>
+        <p class="card-text">{{post.description}}</p>
+        <p class="card-text">Progress: {{post.progress}}</p>
+        <p class="card-text">Posted by: {{post.username}}</p>
+        <!--Delete Button-->
+        <app-post-delete *ngIf="post.username === username" [postId]="post._id" [postUsername]="post.username"></app-post-delete>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,45 @@
+<!--HTML for Login-->
+<div class="d-flex justify-content-between align-items-center">
+
+  <!--Title-->
+  <h1>Login</h1>
+
+  <!--Sign Up Botton-->
+  <button class="btn btn-primary" routerLink="/signup">Sign Up</button>
+
+</div>
+<hr>
+
+<form [formGroup]="loginForm" (ngSubmit)="onlogin()" class="input-width">
+
+  <!--Username-->
+  <div class="form-group">
+      <label class="col-form-label mt-4" for="enteredUsername">Username</label>
+      <input type="text"
+      formControlName="enteredUsername"
+      id="enteredUsername"
+      placeholder="Enter username"
+      required
+      minlength="1"
+      class="form-control"/>
+  </div>
+  <div *ngIf="usernameValidationMessage" class="text-danger">{{ usernameValidationMessage }}</div>
+
+  <!--Password-->
+  <div class="form-group">
+      <label class="col-form-label mt-4" for="enteredPassword">Password</label>
+      <input type="password"
+      formControlName="enteredPassword"
+      id="enteredPassword"
+      placeholder="Enter password"
+      required
+      minlength="1"
+      class="form-control"/>
+  </div>
+  <div *ngIf="passwordValidationMessage" class="text-danger">{{ passwordValidationMessage }}</div>
+
+  <br>
+
+  <!--Login Button-->
+  <button type="submit" class="btn btn-primary">Login</button>
+</form>

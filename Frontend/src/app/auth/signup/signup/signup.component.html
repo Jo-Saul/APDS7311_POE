@@ -1,0 +1,82 @@
+<!--HTML for Signup-->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+
+<form [formGroup]="signupForm" (ngSubmit)="onsignup()">
+
+    <!--Back button-->
+    <button class="btn btn-primary" routerLink="/login"><i class="fas fa-arrow-left"></i> Back</button>
+
+    <h1>Sign Up</h1>
+    <hr>
+
+    <!--Username-->
+    <div class="form-group">
+        <label for="enteredUsername">Username</label>
+        <input type="text"
+               formControlName="enteredUsername"
+               id="enteredUsername"
+               class="form-control input-width"
+               placeholder="Username"
+               required
+               pattern="[A-Z][a-zA-Z0-9]{2,49}"
+               title="Must start with an uppercase letter and can contain both letters and numbers. Length must be between 2 and 50."/>
+    </div>
+    <div *ngIf="usernameValidationMessage" class="text-danger">{{ usernameValidationMessage }}</div>
+    
+    <!--Password-->
+    <div class="form-group">
+        <label for="enteredPassword">Password</label>
+        <input type="password" 
+            formControlName="enteredPassword" 
+            id="enteredPassword" 
+            class="form-control input-width" 
+            placeholder="Password" 
+            required 
+            pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*\W).{2,50}" />
+    </div>
+    <div *ngIf="passwordValidationMessage" class="text-danger">{{ passwordValidationMessage }}</div>
+    
+    <!--Firstname-->
+    <div class="form-group">
+        <label for="enteredFirstname">Firstname</label>
+        <input type="text"
+               formControlName="enteredFirstname"
+               id="enteredFirstname"
+               class="form-control input-width"
+               placeholder="Firstname"
+               required
+               pattern="[A-Z][a-zA-Z]{2,49}"/>
+    </div>
+    <div *ngIf="firstnameValidationMessage" class="text-danger">{{ firstnameValidationMessage }}</div>
+
+    <!--Lastname-->
+    <div class="form-group">
+        <label for="enteredLastname">Lastname</label>
+        <input type="text"
+               formControlName="enteredLastname"
+               id="enteredLastname"
+               class="form-control input-width"
+               placeholder="Lastname"
+               required
+               pattern="[A-Z][a-zA-Z]{2,49}"/>
+    </div>
+    <div *ngIf="lastnameValidationMessage" class="text-danger">{{ lastnameValidationMessage }}</div>
+
+    <!--Contact-->
+    <div class="form-group">
+        <label for="enteredContact">Contact</label>
+        <input type="text"
+               formControlName="enteredContact"
+               id="enteredContact"
+               class="form-control input-width"
+               placeholder="Contact"
+               required
+               minlength="1"/>
+    </div>
+    <div *ngIf="contactValidationMessage" class="text-danger">{{ contactValidationMessage }}</div>
+
+    <br>
+    <!--Sign Up Botton-->
+    <button type="submit" class='btn btn-primary'>Signup</button>
+
+</form>

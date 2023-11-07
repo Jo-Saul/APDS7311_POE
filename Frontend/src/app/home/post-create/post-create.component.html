@@ -1,0 +1,73 @@
+<!--HTML for post create-->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+
+<form [formGroup]="postForm" (ngSubmit)="onaddpost()">
+
+    <!--Back button-->
+    <button class="btn btn-primary" routerLink="/home"><i class="fas fa-arrow-left"></i> Back</button>
+
+    <h1>Create New Post</h1>
+
+    <hr>
+
+    <!--Title-->
+    <div class="form-group form-group-fixed">
+        <label class="col-form-label mt-4" for="enteredTitle">Title</label>
+        <input type="text"
+               formControlName="enteredTitle"
+               id="enteredTitle"
+               class="form-control input-width"
+               placeholder="Enter title"
+               required
+               minlength="3"
+               maxlength="50"
+               pattern="^[A-Z][a-zA-Z0-9\s]*$"
+               title="Must start with an uppercase letter and can contain both letters and numbers. Length must be between 2 and 50."/>
+    </div>
+    <div *ngIf="titleValidationMessage" class="text-danger">{{ titleValidationMessage }}</div>
+    
+    <!--Description-->
+    <div class="form-group form-group-fixed">
+        <label class="col-form-label mt-4" for="enteredDescription">Description</label>
+        <input type="text"
+               formControlName="enteredDescription"
+               id="enteredDescription"
+               class="form-control input-width"
+               placeholder="Enter description"
+               required
+               maxlength="100"/>
+    </div>
+    <div *ngIf="descriptionValidationMessage" class="text-danger">{{ descriptionValidationMessage }}</div>
+    
+    <!--Department-->
+    <div class="form-group form-group-fixed">
+        <label class="col-form-label mt-4" for="enteredDepartments">Departments</label>
+        <input type="text"
+               formControlName="enteredDepartments"
+               id="enteredDepartments"
+               class="form-control input-width"
+               placeholder="Enter departments"
+               required
+               maxlength="50"/>
+    </div>
+    <div *ngIf="departmentsValidationMessage" class="text-danger">{{ departmentsValidationMessage }}</div>
+
+    <!--Progress-->
+    <div class="form-group form-group-fixed">
+        <label class="col-form-label mt-4" for="enteredProgress">Progress Status</label>
+        <input type="text"
+               formControlName="enteredProgress"
+               id="enteredProgress"
+               class="form-control input-width"
+               placeholder="Enter progress status"
+               required
+               maxlength="50"/>
+    </div>
+    <div *ngIf="progressValidationMessage" class="text-danger">{{ progressValidationMessage }}</div>
+
+    <br>
+
+    <!--Add Post Button-->
+    <button type="submit" class="btn btn-primary">Add Post</button>
+
+</form>

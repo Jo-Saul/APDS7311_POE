@@ -1,0 +1,10 @@
+.input-width {
+    max-width: 400px;
+  }
+  
+.password-icon {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    cursor: pointer;
+}
